@@ -1,0 +1,51 @@
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta name="Keywords" content="JSON Editor, Edwin, Matrix" />
+    <link href="{{url_for('static', filename='css/jsonedit.css')}}" rel="stylesheet" type="text/css">
+
+	<title>Edwin Matrix</title> 
+
+	<script src="{{url_for('static', filename='js/jquery-3.1.1.min.js')}}"></script>
+    <script src="{{url_for('static', filename='js/jeditable.js')}}"></script>
+	<script src="{{url_for('static', filename='js/jquery.contextMenu.js')}}"></script>
+    <script src="{{url_for('static', filename='js/edwinedit.js')}}"></script>
+</head>
+<body>
+	<div id="toparea" class="rounded">
+		Edwin Matrix Editor
+		<h1>Edwin Brain</h1>
+	</div>
+	<div id="inputarea" class="rounded">
+	input:
+	<textarea id="jsoninput" rows="35" cols="24">{{curval}}</textarea>
+	</div>
+	<div id="toolarea" class="rounded">tools:
+		<a href="#" onclick="javascript:load_from_box(); " title="import into workspace">&gt;&gt;</a><br/>
+		<a href="#" onclick="javascript:extract_json('json_editor');"  title="export json">&lt;0</a><br/>
+		<a href="#" onclick="javascript:extract_json('json_editor', 2); "  title="export json with 2 space indent">&lt;2</a><br/>
+		<a href="#" onclick="javascript:extract_json('json_editor', '\t'); "  title="export json with tab indent">&lt;\t</a><br/>
+		<a href="#" onclick="javascript:save_ws('json_editor'); " title="Save Edwin">save</a>
+
+	</div>
+	<div id="editarea" class="rounded">
+		workspace:
+		<div id="json_editor" data-role="myjson"></div>
+	</div>
+	<!-- END visible area//-->
+	<div style="display:none"><div data-type="object"></div><div data-type="array"></div></div>
+	<div id="boxes">
+		<div id="dialog" class="window">
+			<b>Your JSON can be fetched at this url:</b>
+			<div id="past_ws">
+			</div>
+			<a href="#" class="close" onclick="javascript: $('#mask, .window').fadeOut(500); ">Close</a>
+		</div>
+		<div id="mask"></div>
+	</div>
+
+
+
+</body>
+</html>
+								
