@@ -6,4 +6,6 @@ RUN pip3 install flask gevent werkzeug wtforms
 
 WORKDIR /app
 
+RUN git clone https://github.com/JohnOmernik/edwinedit
+
 CMD ["/bin/bash"]
