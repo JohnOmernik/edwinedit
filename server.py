@@ -14,9 +14,9 @@ from time import strftime
 app = Flask(__name__)
 
 try:
-    app_root = os.environ["edwin_base"]
+    app_root = os.environ["EDWIN_BASE"]
 except:
-    app_root = "/app/edwin_org"
+    app_root = "/app/edwin"
 
 
 @app.route('/', methods=['GET', 'POST'])
