@@ -1,8 +1,6 @@
 #!/usr/bin/python3
 import time
 import re
-import gevent.monkey
-gevent.monkey.patch_all()
 from flask import Flask, request, render_template, jsonify, make_response
 from wtforms import Form, BooleanField, HiddenField, TextField, TextAreaField, widgets, SelectMultipleField, RadioField
 import hashlib
@@ -98,15 +96,10 @@ def loaddata(jsonfile):
     return retj
 
 
-if __name__ == '__main__':
-    import gevent.wsgi
-    import werkzeug.serving
 
-    @werkzeug.serving.run_with_reloader
-    def runServer():
-        app.debug = True
-        server = gevent.wsgi.WSGIServer(('0.0.0.0', 5000), app)
-        server.serve_forever()
+if __name__ == "__main__":
+   app.run(host='0.0.0.0', debug=True, port=5000)
+
 
 
 
